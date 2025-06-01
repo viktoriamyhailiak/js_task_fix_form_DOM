@@ -5,14 +5,18 @@ const inputs = Array.from(document.querySelectorAll('input'));
 for (const input of inputs) {
   const label = document.createElement('label');
 
+  if (input.hasAttribute('id')) {
+    label.setAttribute('for', input.id);
+  }
+
+  if (input.hasAttribute('name')) {
+    label.textContent = input.name;
+
+    input.setAttribute(
+      'placeholder',
+      input.name[0].toUpperCase() + input.name.slice(1),
+    );
+  }
+
   label.className = 'field-label';
-  label.setAttribute('for', input.id);
-  label.textContent = input.name;
-
-  input.parentElement.append(label);
-
-  input.setAttribute(
-    'placeholder',
-    input.name[0].toUpperCase() + input.name.slice(1),
-  );
 }
