@@ -5,11 +5,11 @@ const inputs = Array.from(document.querySelectorAll('input'));
 for (const input of inputs) {
   const label = document.createElement('label');
 
-  if (input.hasAttribute('id')) {
+  if (input.hasAttribute('id') && input.id !== '') {
     label.setAttribute('for', input.id);
   }
 
-  if (input.hasAttribute('name')) {
+  if (input.hasAttribute('name') && input.name !== '') {
     label.textContent = input.name;
 
     input.setAttribute(
